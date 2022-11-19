@@ -16,6 +16,7 @@ function FirstFactorial(num) {
   //This will test to see which number is being multiplied each time
   //console.log(counter)
   
+  
   counter--
   }
 
