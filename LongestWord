@@ -1,0 +1,69 @@
+function LongestWord(sen) { 
+
+  // code goes here  
+
+  let arrayFinal = [""]
+  let counter = 0
+  let counter2 = 0
+  let senLength = sen.length
+  let numberOfSpace = 0
+  let swc = ""
+  let biggest = 0
+  let stringYouPick = 0
+
+  console.log(arrayFinal[0])
+  while(counter != senLength) {
+
+  //keep adding letters to array until you hit a space
+  //If you are in a new word set do that until you find a  space again
+
+  if( (sen[counter]) == " ") {
+    //Need to make another array that way you can add stuff to it
+    arrayFinal.push([""])
+    numberOfSpace++
+  }
+
+swc = sen[counter]
+//If it is not a letter do not add it to the array
+  if ( swc != " " && swc != "!" && swc != "@" && swc != "#" && swc != "$" && swc != "%" 
+  && swc != "^" && swc != "&" && swc != "*" && swc != "(" && swc != ")"
+  && swc != "_" && swc != "-" && swc != "=" && swc != "+" && swc != "/"
+  && swc != "*" && swc != "[" && swc != "]" && swc != "{" && swc != "}"
+  && swc != ";" && swc != ":" && swc != "," && swc != "." && swc != "<"
+  && swc != ">" && swc != "?" && swc != "|" && swc != "" )  {
+
+    arrayFinal[numberOfSpace] = arrayFinal[numberOfSpace] + sen[counter]
+
+  }
+
+
+  //This will show you how your array is developing
+    //console.log(arrayFinal)
+    counter ++
+  }
+
+//Now go through and see which string in the Array is the biggest and return that
+while (counter2 <= arrayFinal.length-1){
+
+  if (arrayFinal[counter2].length > biggest) {
+  biggest = arrayFinal[counter2].length
+
+  //console.log(biggest)
+
+  stringYouPick = counter2
+  
+  //console.log(counter2)
+  //console.log(stringYouPick)
+}
+
+counter2++
+
+}
+  
+
+return arrayFinal[stringYouPick]; 
+
+}
+   
+// keep this function call here 
+console.log(LongestWord(readline()));
