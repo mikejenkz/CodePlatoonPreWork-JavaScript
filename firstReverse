@@ -1,0 +1,31 @@
+function FirstReverse(str) { 
+
+  // code goes here  
+
+  myStr = str
+
+  reverseString = ""
+
+  let strLength = myStr.length
+  let counter = strLength -1
+  // Figure out length of String
+  // Create new String (reverseString) 
+  // Loop going through until you see every letter in orignal string (myStr)
+
+
+  while(counter != -1) {
+    reverseString = reverseString + myStr[counter] 
+    counter--
+
+    //Use this to test how it will look after each iteration
+    //console.log(reverseString)
+
+  }
+  
+  
+  return reverseString; 
+
+}
+   
+// keep this function call here 
+console.log(FirstReverse(readline()));
