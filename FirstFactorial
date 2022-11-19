@@ -1,0 +1,28 @@
+function FirstFactorial(num) { 
+
+  // code goes here  
+
+  let counter = num
+  let finalNumber = 1
+
+  //Start at the first number you see (num)
+  //Multiply it by your finalNumber
+  //Run a loop (minus your counter by 1 until it equals 1)
+  //Until loop is over multiply the counter by finalNumber
+
+  while (counter != 1) {
+    finalNumber = finalNumber * counter
+    
+  //This will test to see which number is being multiplied each time
+  //console.log(counter)
+  
+  counter--
+  }
+
+
+  return finalNumber; 
+
+}
+   
+// keep this function call here 
+console.log(FirstFactorial(readline()));
