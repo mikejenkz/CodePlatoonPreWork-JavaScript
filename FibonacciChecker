@@ -1,0 +1,36 @@
+function FibonacciChecker(num) { 
+
+  // code goes here 
+  //https://www.livescience.com/37470-fibonacci-sequence.html 
+  // used this website to understand FibSequence a little better
+
+  let fibSeq = [0,1,2,3,5,8,13,21,34,55]
+  let counter = 9
+
+  //Make the fibSeq bigger if it needs to be
+  while (counter < num/7) {
+    fibSeq.push(fibSeq[counter]+fibSeq[counter-1])
+  counter++
+  }
+
+
+//Now just need to see if that number exists in my newly made array
+// https://www.javatpoint.com/javascript-array-indexof-method#:~:text=The%20JavaScript%20array%20indexOf%20%28%29%20method%20is%20used,not%20present%20in%20an%20array%2C%20it%20returns%20-1.
+// Used this website to understand how to find if something exists in an array
+
+if (fibSeq.indexOf(num) == -1) {
+  return "no";
+}
+
+else {
+  return "yes";
+}
+
+  //Testing code
+  //console.log(fibSeq.indexOf(num))
+  //console.log(fibSeq)
+
+}
+   
+// keep this function call here 
+console.log(FibonacciChecker(readline()));
