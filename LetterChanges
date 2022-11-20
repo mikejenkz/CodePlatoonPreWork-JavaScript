@@ -1,0 +1,57 @@
+function LetterChanges(str) { 
+
+  // code goes here  
+
+
+let lettersList = ['A','b','c','d','E','f','g','h','I','j','k','l','m','n','O','p','q'
+,'r','s','t','U','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L',
+'M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+//This is all the possible letters you may incur
+
+let lettersDict = {'a':1,'b':2,'c':3,'d':4,'e':5,'f':6,'g':7,'h':8,'i':9,'j':10,'k':11,
+'l':12,'m':13,'n':14,'o':15,'p':16,'q':17,'r':18,'s':19,'t':20,'u':21,'v':22,'w':23,'x':24,'y':25, 
+'z':26,'A': 27,'B': 28,'C': 29,'D':30,'E':31,'F':32,'G':33,'H':34,'I':35,'J':36,'K':37,'L':38,
+'M':39,'N':40,'O':41,'P':42,'Q':43,'R':44,'S':45,'T':46,'U':47,'V':48,'W':49,'X':50,'Y':51,'Z':52}
+
+let counter = 0
+let finalString = ""
+
+//Going to go through the string every time it is not in the lettersDict just add 
+//It to my final string,  If it is in the dict then add one more in the lettersList
+
+while (counter < str.length) {
+  //see whats going on in the code
+  //console.log(lettersDict[str[counter]])
+  //console.log(lettersList[lettersDict[str[counter]]])
+
+  if (lettersDict[str[counter]] == undefined) {
+    finalString = finalString + str[counter]
+    //counter++
+  }
+
+  //The fix for when we see a z
+  else if(lettersDict[str[counter]] == 26) {
+    finalString = finalString + "A"
+  }
+  
+  //When we see a capital Z
+  else if(lettersDict[str[counter]] == 52) {
+    finalString = finalString + "A"
+  }
+
+  else {
+    finalString = finalString + lettersList[lettersDict[str[counter]]]
+  }
+
+
+
+counter++
+}
+
+return finalString;
+
+
+}
+   
+// keep this function call here 
+console.log(LetterChanges(readline()));
