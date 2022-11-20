@@ -1,0 +1,40 @@
+function StringScramble(str1,str2) { 
+
+  // code goes here  
+
+  let firstString = str1
+  //Just check if the the letters in string 2 exist in string 1
+
+  let counter = 0
+
+  while(counter < str2.length) {
+
+    //testing code
+   // console.log(firstString.indexOf(str2[counter]))
+    //console.log("This is str1[counter]  " + str1[counter])
+
+
+  if(firstString.indexOf(str2[counter]) == -1) {
+    return false;
+  }
+  //Different Testing Code below
+  //console.log(firstString)
+  //firstString = firstString.slice(firstString.indexOf(str2[counter]));
+  //This is how you get rid of counting twice for letters
+  //https://tracedynamics.com/javascript-remove-character-from-string/
+  //Used this website to understand replace method
+
+  
+  firstString = firstString.replace(firstString[firstString.indexOf(str2[counter])], "") 
+
+  
+
+  counter++
+
+  }
+  return true; 
+
+}
+   
+// keep this function call here 
+console.log(StringScramble(readline()));
