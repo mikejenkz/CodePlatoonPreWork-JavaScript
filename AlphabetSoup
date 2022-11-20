@@ -1,0 +1,38 @@
+function AlphabetSoup(str) { 
+
+  // code goes here  
+
+
+let counter = 0
+let finalString = ""
+let counter2 = 0
+let unsortedArray = []
+
+//turn in string into array first than sort it than turn back to string
+
+while (counter < str.length) {
+  unsortedArray.push(str[counter])
+
+  counter++
+
+}
+
+unsortedArray.sort()
+//now go through and add in order to your finalString
+
+while(counter2 < str.length) {
+  finalString = finalString + unsortedArray[counter2]
+  
+
+  counter2++
+
+
+}
+
+return finalString;
+
+
+}
+   
+// keep this function call here 
+console.log(AlphabetSoup(readline()));
