@@ -1,0 +1,50 @@
+function PalindromeTwo(str) { 
+
+  // code goes here  
+
+//First need to get rid of all spaces and characters different than letters
+//Also need to make all letters lowercase
+//Then going to make an array with all the letters
+//And then check if the first Array character = last Array character letter
+//Continue until one of them doesn't equal the same or go all the way through 
+//And return true
+
+let rulesArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o',
+'p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E',
+'F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T',
+'U','V','W','X','Y','Z']
+
+let finalArray = []
+let counter = 0
+
+while (counter < str.length) {
+
+  if (rulesArray.indexOf(str[counter]) != -1) {
+    finalArray.push(str[counter].toLowerCase())
+
+    //Used this website for how to lowercase
+    //https://www.w3resource.com/javascript-exercises/javascript-string-exercise-39.php
+  }
+
+counter++
+}
+
+//Second part now see if the last number = first number and so on
+let counter2 = 0
+
+while (counter2 < finalArray.length) {
+
+  if(finalArray[counter2] != finalArray[finalArray.length-counter2-1]) {
+    return false;
+  }
+
+  counter2++
+
+
+}
+return true;
+
+}
+   
+// keep this function call here 
+console.log(PalindromeTwo(readline()));
