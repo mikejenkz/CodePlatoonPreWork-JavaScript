@@ -1,0 +1,114 @@
+function CountingMinutes(str) { 
+
+  // code goes here  
+  //Going to first convert to military time 
+  //Then mutiply the hours by 60
+  //Then minus add that two the minutes
+  //Then minus the two numbers by each other
+
+  let number1Hour = 0
+  let number2Hour = 0
+  let number1Min = 0
+  let number2Min = 0
+
+  let finalTime1 = 0
+  let finalTime2 = 0
+
+  //Changing first number
+  if (str[1] == ":") {
+    number1Hour = parseInt(str[0])
+    if(str[4] == "p") {
+      number1Hour = number1Hour + 12
+    }
+
+    if(str[8] == ":" ) {
+      number2Hour = parseInt(str[7])
+      if(str[11] == "p") {
+        number2Hour = number2Hour + 12
+      }
+      number2Min = parseInt(str[9] + str[10])
+
+
+    }
+    
+    if(str[8] != ":") {
+      number2Hour = parseInt(str[7]+str[8])
+    if (number2Hour == 12 && str[12] == "a") { 
+      number2Hour = 0
+    }
+
+      if(str[12] == "p" && number2Hour != 12) {
+        number2Hour = number2Hour +12
+      }
+      number2Min = parseInt(str[10]+str[11])
+    }
+
+  number1Min = parseInt(str[2]+str[3])
+  }
+
+
+  if (str[1] != ":") {
+    number1Hour = parseInt(str[0] + str[1])
+
+    if (number1Hour == 12 && str[5] == "a") { 
+      number1Hour = 0
+    }
+
+    if(number1Hour == 12 && str[5] == "p") {
+      number1Hour = 12
+    }
+
+    if (str[5] == "p" && number1Hour != 12) {
+      number1Hour = number1Hour + 12
+    }
+    number1Min = parseInt(str[3]+str[4])
+
+    if(str[9] == ":") { 
+      number2Hour = parseInt(str[8])
+      if(str[12] == "p") {
+        number2Hour = number2Hour + 12
+      }
+      number2Min = parseInt(str[10]+str[11])
+    }
+
+
+    if(str[9] != ":") {
+      number2Hour = parseInt(str[8]+str[9])
+    if (number2Hour == 12 && str[13] == "a") { 
+      number2Hour = 0
+    }
+
+
+      if (str[13] == "p" && number2Hour != 12) {
+        number2Hour = number2Hour +12
+      }
+      number2Min = parseInt(str[11]+str[12])
+    }
+
+  }
+
+//Testing code
+//console.log(number1Hour + " " + number1Min)
+//console.log(number2Hour + " " + number2Min)
+
+finalTime1 = (number1Hour*60)+number1Min
+finalTime2 = number2Hour*60+number2Min
+
+
+  //console.log(finalTime1)
+  //console.log(finalTime2)
+  
+  if (finalTime2 >= finalTime1) {
+    return finalTime2 - finalTime1;
+  }
+
+  else {
+    return 1440 - (finalTime1 - finalTime2);
+     
+  }
+  return false; 
+
+}
+   
+// keep this function call here 
+console.log(CountingMinutes(readline()));
