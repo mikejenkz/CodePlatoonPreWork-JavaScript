@@ -1,0 +1,81 @@
+function ThirdGreatest(strArr) { 
+
+  // Going to run through the array finding the biggest length
+  // Then going to just remove the biggest word
+  // Do this until you get to the third biggest word
+  // Then return that word
+
+  let counter = 0
+  let biggestWord = 0
+  let spot = 0
+  let word = ""
+  
+
+  while (counter < strArr.length) {
+
+    word = strArr[counter].length
+
+    //find the first biggest word
+
+    if (word > biggestWord) {
+      biggestWord = word
+      spot = counter
+      //console.log(spot)
+    }
+
+    counter++
+  }
+
+  strArr[spot] = ""
+
+  counter = 0
+  biggestWord = 0
+  spot = 0
+
+while (counter < strArr.length) {
+
+    word = strArr[counter].length
+
+    //find the second biggest word
+
+    if (word > biggestWord) {
+      biggestWord = word
+      spot = counter
+      //console.log(spot)
+    }
+
+    counter++
+  }
+
+  strArr[spot] = ""
+
+  counter = 0
+  biggestWord = 0
+  spot = 0
+
+while (counter < strArr.length) {
+
+    word = strArr[counter].length
+
+    //find the third biggest word
+
+    if (word > biggestWord) {
+      biggestWord = word
+      spot = counter
+      //console.log(spot)
+    }
+
+    counter++
+  }
+
+
+
+  
+  
+  return strArr[spot];
+
+
+}
+   
+// keep this function call here 
+console.log(ThirdGreatest(readline()));
