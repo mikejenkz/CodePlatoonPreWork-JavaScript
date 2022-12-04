@@ -1,0 +1,27 @@
+function DistinctList(arr) { 
+
+  //Going to sort the array
+  //Then only count every time a number is repeated 
+  
+
+  let counter = 1
+  let count = 0
+  let sortedArray = arr.sort()
+  //let checker = sortedArray[0]
+
+  while (counter <= arr.length) {
+    
+
+    if (sortedArray[counter] == sortedArray[counter-1]) {
+      //console.log(counter)
+      count ++
+    }
+
+    counter++
+  }
+  return count;
+
+}
+   
+// keep this function call here 
+console.log(DistinctList(readline()));
