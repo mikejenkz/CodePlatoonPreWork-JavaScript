@@ -1,0 +1,70 @@
+function CaesarCipher(str,num) { 
+
+  //Going to go through the string just adding its location +2 to a new string
+  //https://www.w3schools.com/jsref/jsref_charCodeAt.asp
+  //Used above website to understand charCodeAt()
+
+  let counter = 0
+  let finalString = ""
+  let newLetterNumber = 0
+  let newLetter = ""
+  //console.log(str.charCodeAt(0))
+  //console.log(String.fromCharCode(65))
+
+  // z = 122 a = 97
+  // Z = 90 A = 65
+
+
+  while (counter < str.length) {
+
+//Taking care of the possible things you can see in a normal sentence
+//Would add more if it cared about all other non alphabet characters
+    if(str[counter] == " " || str[counter] == "!" || str[counter] == "." 
+    || str[counter] == "," || str[counter] == "/" || str[counter] == "@") {
+      finalString = finalString + str[counter]
+    }
+
+
+//This will take care of the uncapital letters
+    else if(str.charCodeAt(counter) > 96) {
+      if(str.charCodeAt(counter) + num > 122) {
+        newLetterNumber = str.charCodeAt(counter) - 122 + num + 96
+        newLetter = String.fromCharCode(newLetterNumber)
+        finalString = finalString + newLetter
+      }
+
+      else {
+       newLetterNumber = str.charCodeAt(counter) + num
+       newLetter = String.fromCharCode(newLetterNumber)
+       finalString = finalString + newLetter
+      }
+    }
+
+//This will take care of the capital letters   
+
+  else if(str.charCodeAt(counter) < 97) {
+      if(str.charCodeAt(counter) + num > 90) {
+        newLetterNumber = str.charCodeAt(counter) - 90 + num + 64
+        newLetter = String.fromCharCode(newLetterNumber)
+        finalString = finalString + newLetter
+      }
+
+      else {
+       newLetterNumber = str.charCodeAt(counter) + num
+       newLetter = String.fromCharCode(newLetterNumber)
+       finalString = finalString + newLetter
+      }
+    }
+
+  counter++
+  }
+
+
+
+ // console.log(finalString)
+  return finalString;
+
+}
+   
+// keep this function call here 
+console.log(CaesarCipher(readline()));
